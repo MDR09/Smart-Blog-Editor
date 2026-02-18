@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  /* Editor Styles */
+  .editor-container {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200;
+  }
+
+  .editor-input {
+    @apply min-h-[400px] outline-none px-6 py-4 resize-none text-base leading-relaxed;
+  }
+
+  .editor-placeholder {
+    @apply text-gray-400 overflow-hidden absolute top-4 left-6 text-base pointer-events-none select-none;
+  }
+
+  /* Toolbar Styles */
+  .toolbar {
+    @apply flex items-center gap-1 px-4 py-2 border-b border-gray-200 bg-gray-50/50 rounded-t-lg flex-wrap;
+  }
+
+  .toolbar-button {
+    @apply p-2 rounded hover:bg-gray-200 transition-colors disabled:opacity-30 disabled:cursor-not-allowed;
+  }
+
+  .toolbar-button.active {
+    @apply bg-gray-300;
+  }
+
+  .toolbar-divider {
+    @apply w-px h-6 bg-gray-300 mx-1;
+  }
+
+  /* Lexical Editor Content Styles */
+  .editor-text-bold {
+    @apply font-bold;
+  }
+
+  .editor-text-italic {
+    @apply italic;
+  }
+
+  .editor-text-underline {
+    @apply underline;
+  }
+
+  .editor-text-strikethrough {
+    @apply line-through;
+  }
+
+  .editor-text-code {
+    @apply bg-gray-100 px-1 py-0.5 rounded font-mono text-sm;
+  }
+
+  .editor-heading-h1 {
+    @apply text-4xl font-bold mt-6 mb-4;
+  }
+
+  .editor-heading-h2 {
+    @apply text-3xl font-bold mt-5 mb-3;
+  }
+
+  .editor-heading-h3 {
+    @apply text-2xl font-bold mt-4 mb-2;
+  }
+
+  .editor-list-ol {
+    @apply list-decimal ml-6 my-2;
+  }
+
+  .editor-list-ul {
+    @apply list-disc ml-6 my-2;
+  }
+
+  .editor-listitem {
+    @apply my-1;
+  }
+
+  .editor-paragraph {
+    @apply my-2;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors font-medium border border-gray-300;
+  }
+
+  .btn-ghost {
+    @apply text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors font-medium;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-4;
+  }
+
+  /* Input Styles */
+  .input {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all;
+  }
+}
+
+/* Loading Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Auto-save indicator */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+.saving-indicator {
+  @apply text-sm text-gray-500 flex items-center gap-2;
+}
+
+.saving-indicator.saving {
+  @apply text-primary-600;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
